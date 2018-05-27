@@ -1,32 +1,64 @@
+<div class='wrap'>
+  <div class = 'chart'>
+    <div id="chart-demo">
+      <dx-chart [palette]="chartPalette" [dataSource]="dataRecive" title="Thermostat" #chartDatamining [customizeLabel]="customizeLabel">
+          <!-- <dxo-adaptive-layout [height]="800"></dxo-adaptive-layout> -->
+          <dxo-size [height]="532"></dxo-size>
+        <dxi-series valueField="temperature" name="Temperature in house"></dxi-series>
+        <dxi-series valueField="humidity" name="Humidity in house"></dxi-series>
+        <!-- <dxi-series valueField="temperatureSet" name="predicted temperature will be Set for thermostat"></dxi-series> -->
 
-<div id="chart-demo">
-  <dx-chart palette="violet" [dataSource]="architecturesInfo" title="Architecture Share Over Time (Count)">
-    <dxi-series valueField="smp" name="SMP"></dxi-series>
-    <dxi-series valueField="mmp" name="MMP"></dxi-series>
-    <dxi-series valueField="cnstl" name="Cnstl"></dxi-series>
-    <dxi-series valueField="cluster" name="Cluster"></dxi-series>
-    <dxo-common-series-settings #seriesSettings argumentField="year" [type]="types[0]">
-    </dxo-common-series-settings>
-    <dxo-margin [bottom]="20"></dxo-margin>
-    <dxo-common-axis-settings>
-      <dxo-grid [visible]="true"></dxo-grid>
-    </dxo-common-axis-settings>
-    <dxo-legend verticalAlignment="top" horizontalAlignment="right">
-    </dxo-legend>
-    <dxo-argument-axis [allowDecimals]="false" [axisDivisionFactor]="60">
-      <dxo-label>
-        <dxo-format type="decimal"></dxo-format>
-      </dxo-label>
-    </dxo-argument-axis>
-    <dxo-export [enabled]="true"></dxo-export>
-    <dxo-tooltip [enabled]="true"></dxo-tooltip>
-  </dx-chart>
-  <div class="options">
-    <div class="caption">Options</div>
-    <div class="option">
-      <span>Series Type</span>
-      <dx-select-box [dataSource]="types" [(value)]="seriesSettings.type">
-      </dx-select-box>
+        <dxo-common-series-settings #seriesSettings argumentField="time" [type]="types[0]">
+        </dxo-common-series-settings>
+        <dxo-margin [bottom]="20"></dxo-margin>
+        <dxo-common-axis-settings>
+          <dxo-grid [visible]="true"></dxo-grid>
+        </dxo-common-axis-settings>
+        <dxo-legend  verticalAlignment='bottom' horizontalAlignment='center' itemTextPosition= 'right' [columnItemSpacing]="50"
+        [rowItemSpacing]="30" >
+        </dxo-legend>
+        <dxo-argument-axis [allowDecimals]="false" [axisDivisionFactor]="60">
+          <dxo-label [visible]="true">
+            <dxo-format type="decimal"></dxo-format>
+          </dxo-label>
+        </dxo-argument-axis>
+        <dxo-export [enabled]="true"></dxo-export>
+        <dxo-tooltip [enabled]="true"></dxo-tooltip>
+      </dx-chart>
+    </div>
+
+    <div >
+      <dx-chart [palette]="chartPredictPalette" [dataSource]="dataminingPredictRecive" title="Datamining Output" #chartDataminingPredict [customizeLabel]="customizeLabel">
+        <!-- <dxi-series valueField="temperature" name="temperature in house"></dxi-series>
+        <dxi-series valueField="humidity" name=" humidity in house"></dxi-series> -->
+        <dxi-series valueField="temperatureSet" name="TemperatureSet"></dxi-series>
+    
+        <dxo-common-series-settings #seriesSettings argumentField="time" [type]="types[0]">
+        </dxo-common-series-settings>
+        <dxo-margin [bottom]="20"></dxo-margin>
+        <dxo-common-axis-settings>
+          <dxo-grid [visible]="true"></dxo-grid>
+        </dxo-common-axis-settings>
+        <dxo-legend verticalAlignment='bottom' horizontalAlignment='center' itemTextPosition= 'right'>
+        </dxo-legend>
+        <dxo-argument-axis [allowDecimals]="false" [axisDivisionFactor]="60">
+          <dxo-label [visible]="true">
+            <dxo-format type="decimal"></dxo-format>
+          </dxo-label>
+        </dxo-argument-axis>
+        <dxo-export [enabled]="true"></dxo-export>
+        <dxo-tooltip [enabled]="true"></dxo-tooltip>
+      </dx-chart>
+    </div>
+  </div>
+  <div class="textwrap">
+    <div class='text'>
+      <!-- <textarea>{{trainingDatasetContent}}</textarea> -->
+      <span style="white-space: pre-wrap">{{trainingDatasetContent}}</span>
+    </div>
+    <div class='naiveBayesClassifier-text'>
+      <!-- <textarea>{{naiveBayesClassifier}}</textarea> -->
+      <span style="white-space: pre-wrap">{{naiveBayesClassifier}}</span>
     </div>
   </div>
 </div>

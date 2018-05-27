@@ -17,3 +17,36 @@
     display: inline-block;
     vertical-align: middle;
 }
+
+.wrap {
+    width: 100%;
+    display: flex;
+}
+.chart{
+    /* margin: 0; */
+    /* padding: 0; */
+    width: 50%;
+    /* overflow-x: auto; */
+    display: flex;
+    flex-direction: column;
+}
+#chart-demo {
+    /* height: 620px; */
+    /* flex: 1; */
+    height: 532px;
+    
+}
+.textwrap{
+    width: 50%;
+    display: flex;
+}
+.text, .naiveBayesClassifier-text {
+    height: 890px;
+    overflow-y: auto;
+    margin-left: 35px;
+    /* margin-top: 35px; */
+    white-space: pre-wrap;
+    overflow-x: hidden;
+    font-size: 18px;
+    
+}
